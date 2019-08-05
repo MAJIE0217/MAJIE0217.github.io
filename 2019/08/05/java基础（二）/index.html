@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/128x128-favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32-favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16-favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,基础,笔记,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本次主要记录的是基本控制语句、数组两块内容">
+<meta name="keywords" content="java,基础,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础（二）">
+<meta property="og:url" content="https://jiema0217.github.io/2019/08/05/java基础（二）/index.html">
+<meta property="og:site_name" content="jiema0217">
+<meta property="og:description" content="本次主要记录的是基本控制语句、数组两块内容">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_01.png">
+<meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_02.png">
+<meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_03.png">
+<meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_04.png">
+<meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_05.png">
+<meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_06.png">
+<meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_07.png">
+<meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_08.png">
+<meta property="og:updated_time" content="2019-08-05T12:37:40.705Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java基础（二）">
+<meta name="twitter:description" content="本次主要记录的是基本控制语句、数组两块内容">
+<meta name="twitter:image" content="https://jiema0217.github.io/imgs-java/java02_01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jiema0217.github.io/2019/08/05/java基础（二）/">
+
+
+
+
+
+  <title>java基础（二） | jiema0217</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">jiema0217</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jiema0217.github.io/2019/08/05/java基础（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KEKEXI">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="jiema0217">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java基础（二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T20:37:13+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/05/java基础（二）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/05/java基础（二）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量 <i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.8k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本次主要记录的是基本控制语句、数组两块内容</p>
+<a id="more"></a>
+
+<h1 id="基本控制语句"><a href="#基本控制语句" class="headerlink" title="基本控制语句"></a>基本控制语句</h1><p>在java中，控制语句有顺序结构、选择结构、循环结构三类。而顺序结构我们写一般的代码，一行一行的写下去，就像看书一样，有顺序，一行一页。</p>
+<p>本次主要记录的是选择结构和循环结构。</p>
+<hr>
+<h2 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h2><p>选择也称为判断，如果…就…，只有满足条件才执行响应的语句块。</p>
+<hr>
+<h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h3><p>如果第一个if执行，输出大数，如果第二个if执行，输出小数。有多少个if，就进行几次判断。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int a = (int)(Math.random()*10+1);	</span><br><span class="line">//random()是Math类的静态方法，产生[0,1)之间的随机数，为浮点型</span><br><span class="line">//random()*10，就是产生[0,10)之间的随机数，再加1,产生[1,11)之间的浮点型随机数，最后转为int型</span><br><span class="line"></span><br><span class="line">System.out.println(a);</span><br><span class="line">if(a&gt;=5) &#123;	//()里填的条件语句是布尔表达式，为真执行语句</span><br><span class="line">	System.out.println(&quot;大数&quot;);</span><br><span class="line">&#125;</span><br><span class="line">if(a&lt;5) &#123;</span><br><span class="line">	System.out.println(&quot;小数&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs-java/java02_01.png" alt></p>
+<hr>
+<h3 id="if-else语句"><a href="#if-else语句" class="headerlink" title="if-else语句"></a>if-else语句</h3><p>我们把上面的代码改改，变成if-else语句，变量a只需要判断一次，如果if不执行，那么else执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int a = (int)(Math.random()*10+1);	</span><br><span class="line"></span><br><span class="line">System.out.println(a);</span><br><span class="line">if(a&gt;=5) &#123;	//()里填的条件语句是布尔表达式，为真才执行语句</span><br><span class="line">	System.out.println(&quot;大数&quot;);</span><br><span class="line">&#125;else &#123;		//if里不执行，那表达式为假，就跳到else执行</span><br><span class="line">	System.out.println(&quot;小数&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="if-elseif-else语句"><a href="#if-elseif-else语句" class="headerlink" title="if-elseif-else语句"></a>if-elseif-else语句</h3><p>如果我们要输出成绩怎么办，优、良、中、及格、不及格，我们用if和if-elseif-else进行对比。</p>
+<p>以下为了方便直观，把判断句的语句块都去掉了，但很容易出现问题。所以请记住，一定要打{}。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">int a = (int)(Math.random()*100+1);	</span><br><span class="line">System.out.println(a);</span><br><span class="line">//先用if来操作</span><br><span class="line">if(a &lt; 60) System.out.println(&quot;不及格&quot;);</span><br><span class="line">if(a&gt;=60 &amp;&amp; a &lt; 70) System.out.println(&quot;及格&quot;);</span><br><span class="line">if(a&gt;=70 &amp;&amp; a &lt; 80) System.out.println(&quot;中等&quot;);</span><br><span class="line">if(a&gt;=80 &amp;&amp; a &lt; 90) System.out.println(&quot;良好&quot;);</span><br><span class="line">if(a &gt;= 90) System.out.println(&quot;优秀&quot;);</span><br><span class="line">System.out.println(&quot;--------------------&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//现在用if-else if-else操作</span><br><span class="line">if(a&gt;=90) System.out.println(&quot;优秀&quot;);		//如果大于等于90执行这条语句</span><br><span class="line">else if(a&gt;=80) System.out.println(&quot;良好&quot;);	//否则，大于等于80执行这条语句</span><br><span class="line">else if(a&gt;=70) System.out.println(&quot;中等&quot;);	//再否则， 大于等于70执行这条语句</span><br><span class="line">else if(a&gt;=60) System.out.println(&quot;及格&quot;);	//再再否则， 大于等于60执行这条语句</span><br><span class="line">else System.out.println(&quot;不及格&quot;);		//再再再再否则，终于输出最后一条语句</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs-java/java02_02.png" alt></p>
+<hr>
+<h3 id="嵌套的if"><a href="#嵌套的if" class="headerlink" title="嵌套的if"></a>嵌套的if</h3><p>我们可以在if里再加判断句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if(布尔表达式)&#123;</span><br><span class="line">	if()&#123;</span><br><span class="line">		if()&#123;&#125;</span><br><span class="line">		else if()&#123;&#125;</span><br><span class="line">		else &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们用嵌套的if-else来输出成绩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">if(a&gt;=90) &#123;</span><br><span class="line">	System.out.println(&quot;优秀&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else &#123;</span><br><span class="line">	if(a&gt;=80) &#123;</span><br><span class="line">	System.out.println(&quot;良好&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	else &#123;</span><br><span class="line">		if(a&gt;=70) &#123;</span><br><span class="line">			System.out.println(&quot;中等&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			if(a&gt;=60) &#123;</span><br><span class="line">				System.out.println(&quot;及格&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				System.out.println(&quot;不及格&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果把{}都拿掉，是不是很像if-elseif-else类型。</p>
+<p>总结一下if条件语句，如果只满足一个条件才执行，那就用if单条语句，如果判断对立面，那就用if-else语句，如果有多判断多选择，就用if-elseif-else。好像说的废话一样。。。怎么方便怎么用就行。</p>
+<h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><p>此switch非彼switch，不是游戏机，没有任天堂，就是用来判断的，是多选择语句，和if-else if-else类似。但是switch可以很简单用字符串来判断。你也可以在case里嵌套switch，实现嵌套判断。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">String[] game = &#123;&quot;ps4&quot;, &quot;xbox&quot;, &quot;switch&quot;&#125;;	//这是字符串数组，马上讲数组了，而字符串会专门讲，很重要</span><br><span class="line">int i = (int)(Math.random()*3);			//数组从0开始，所以这里随机[0,3)就行</span><br><span class="line"></span><br><span class="line">System.out.println(i);</span><br><span class="line"></span><br><span class="line">switch(game[i]) &#123;</span><br><span class="line">	case &quot;ps4&quot;:</span><br><span class="line">		System.out.println(&quot;大家好，我是索尼游戏机&quot;);</span><br><span class="line">		break;		//break是停止语句，接下来语句块内的内容不执行，一般在循环语句块用</span><br><span class="line">	case &quot;xbox&quot;:</span><br><span class="line">		System.out.println(&quot;大家好，我是微软游戏机&quot;);</span><br><span class="line">		break;		//如果没有break,当i=0时，会输出全部内容</span><br><span class="line">	case &quot;switch&quot;:</span><br><span class="line">		System.out.println(&quot;大家好，我是任天堂游戏机&quot;);</span><br><span class="line">		break;</span><br><span class="line">	default:		//相当于else,可以把case &quot;switch&quot;去掉，把输出任天堂放到这里</span><br><span class="line">		break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs-java/java02_03.png" alt></p>
+<hr>
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><p>只要满足相应的条件，就一直执行下去。</p>
+<hr>
+<h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(初始值; 循环条件; 循环走向)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">初始值:循环从开始的地方</span><br><span class="line">循环条件:循环在什么情况下满足条件</span><br><span class="line">循环走向:循环是递增还是递减,等比数列还是等差数列进行取值</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0; i&lt;=10; i++) &#123;</span><br><span class="line">	//System.out.print(i+&apos; &apos;); 这里把char和int型加在一起，相当于(i+32),输出3233343536373839404142</span><br><span class="line">	System.out.print(i+&quot; &quot;); 	//这样才打印[0,10] 输出0 1 2 3 4 5 6 7 8 9 10 </span><br><span class="line">&#125;</span><br><span class="line">//原因:char是一个字符，能与int相加转型为int型，而&quot; &quot;是字符串(String)</span><br><span class="line">//&quot; &quot;里有两个值，&apos; &apos;和&apos;\0&apos;组成，不会与int型相加</span><br><span class="line"></span><br><span class="line">//但String会把之后的内容拼接在一起,下面把循环输出改一改</span><br><span class="line">for(int i=0; i&lt;=10; i++) &#123;</span><br><span class="line">	System.out.print(i+2+&quot; &quot;+i+2+&apos; &apos;);	//输出2 02 3 12 4 22 5 32 6 42 7 52 8 62 9 72 10 82 11 92 12 102</span><br><span class="line">&#125;</span><br><span class="line">//&quot; &quot;前i和2相加，之后把i和2还有&apos; &apos;拼接在一起,所以用String类型，要注意放的位置</span><br></pre></td></tr></table></figure>
+
+<h3 id="增强for循环"><a href="#增强for循环" class="headerlink" title="增强for循环"></a>增强for循环</h3><p>增强for循环一般只是输出变量的数值。下面打印0~9的数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int [] a = &#123;0,1,2,3,4,5,6,7,8,9&#125;;</span><br><span class="line">//for(Object 临时变量名:要打印的变量名)</span><br><span class="line">//增强for循环不仅可以用于基本的数据类型，还能用于类，类都继承了Object对象</span><br><span class="line">for(int temp:a) &#123;</span><br><span class="line">	System.out.print(temp+&quot; &quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><p>while循环只有循环条件，初始值只能在循环体外定义。</p>
+<p>下面输出0到10的数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int i=0;</span><br><span class="line">while(i&lt;=10) &#123;</span><br><span class="line">	System.out.print(i+&quot; &quot;);</span><br><span class="line">	i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>for和while都是比较常用的循环。</p>
+<hr>
+<h3 id="do-while循环"><a href="#do-while循环" class="headerlink" title="do-while循环"></a>do-while循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int i=5;</span><br><span class="line">do &#123;</span><br><span class="line">	System.out.print(i+&quot; &quot;);</span><br><span class="line">	i++;</span><br><span class="line">&#125;while(i&lt;0);</span><br></pre></td></tr></table></figure>
+
+<p>do-while和while有啥区别呢，那就是do-while第一次无论 有没有满足条件，都先执行一次，而while、乃至for都是先要满足条件才执行。而上面的这段代码，5本来就小于0，而do-while会打印了5，才来判断是否满足条件。</p>
+<hr>
+<h3 id="嵌套循环"><a href="#嵌套循环" class="headerlink" title="嵌套循环"></a>嵌套循环</h3><p>我们用for和while分别打印乘法表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">for(int i=1; i&lt;=9; i++) &#123;</span><br><span class="line">	for(int j=1; j&lt;=i; j++) &#123;</span><br><span class="line">		System.out.print(j+&quot;*&quot;+i+&apos;=&apos;+(i*j)+&apos; &apos;);	//之前说过&quot;&quot;之后是字符串拼接，所以(i*j)打了括号，当然不打括号也行，*优先级大于+</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(&quot;------------------------&quot;);</span><br><span class="line"></span><br><span class="line">int i=1;</span><br><span class="line">while(i&lt;=9) &#123;</span><br><span class="line">	int j=1;</span><br><span class="line">	while(j&lt;=i) &#123;</span><br><span class="line">		System.out.print(j+&quot;*&quot;+i+&apos;=&apos;+(i*j)+&apos; &apos;);</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">	i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs-java/java02_04.png" alt></p>
+<p>当然，如果想输出对其，最简单的办法就是用C语言的格式输出。</p>
+<p>System.out.printf(“%d*%d = %2d  “,j,i,i*j);</p>
+<hr>
+<h2 id="、-amp-amp-、-、"><a href="#、-amp-amp-、-、" class="headerlink" title="!、&amp;&amp;、||、^"></a>!、&amp;&amp;、||、^</h2><p>第一篇写了!、&amp;、|，我还少写了^，没咋用忘了。前面写了!能改变boolean值，&amp;、|参与二进制的相关运算，而今天的&amp;&amp;和||是什么呢？</p>
+<p>当然，它们也是参与布尔表达式的运算，常常在条件语句和循环语句出现，前面也提及过，if()里进行的是布尔表达式，循环里的循环条件也是布尔表达式。我们来一起用用吧。</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">!</td>
+<td align="center">非</td>
+<td align="center">肯变否，否变肯</td>
+</tr>
+<tr>
+<td align="center">&amp;&amp;</td>
+<td align="center">与</td>
+<td align="center">全真才真</td>
+</tr>
+<tr>
+<td align="center">||</td>
+<td align="center">或</td>
+<td align="center">全假才假</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">异或</td>
+<td align="center">一真一假为真</td>
+</tr>
+</tbody></table>
+<p>条件语句经常和循环语句一起使用，我们来看看下面的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//输出1000年到2999年之间有多少闰年</span><br><span class="line">for(int i=1000; i&lt;= 2999; i++) &#123;</span><br><span class="line">	if((i%4==0 &amp;&amp; i%100!=0) || i%400==0) &#123;	//里面可以不用加()，!的优先级&gt;&amp;&amp;&gt;&gt;||</span><br><span class="line">		System.out.println(i+&quot;\t&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">//闰年一定可以被4整除，而千年是闰年，还能被400整除，可是百年大部分都不是闰年，但它能被100整除</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">int a = 2, b = 3, c = 0;</span><br><span class="line">if(!(c!=0) &amp;&amp; a&gt;1) &#123;</span><br><span class="line">	System.out.println(&quot;c不是不是0，并且a的值大于1&quot;); //有点拗，c!=0，是false,又加个否定，等价于c==0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(a&gt;2 &amp;&amp; (c++)&gt;=0) &#123;	</span><br><span class="line">	System.out.println(&quot;有输出吗?&quot;);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(&quot;c:&quot;+c);</span><br><span class="line">//看的出来， a&gt;2不成立，没有执行if里的内容，&amp;&amp;后面也没有执行</span><br><span class="line"></span><br><span class="line">if((c++)&gt;=0 &amp;&amp; a&gt;2) &#123;	</span><br><span class="line">	System.out.println(&quot;有输出吗?&quot;);</span><br><span class="line">&#125;</span><br><span class="line">//更改一下位置，c++,c变为1，条件成立，但a&gt;2不成立，没有执行if里的内容</span><br><span class="line">System.out.println(&quot;c:&quot;+c);</span><br><span class="line"></span><br><span class="line">if(a&gt;2 || (c++)&gt;=0) &#123;</span><br><span class="line">	System.out.println(&quot;c:&quot;+c);</span><br><span class="line">&#125;</span><br><span class="line">// ||有一个成立就行，所以if里打印了c的值</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs-java/java02_05.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">		//这是异常的示例</span><br><span class="line">		int a = 5, b = 3;</span><br><span class="line">		System.out.println(a^b); 			//输出 6</span><br><span class="line">/*</span><br><span class="line"> * 		原理还是二进制</span><br><span class="line"> * 		5的二进制：0101</span><br><span class="line"> * 		3的二进制：0011</span><br><span class="line"> * 		那么^之后：0110   就是6啦，一真一假为真</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">		int a1 = 2, b1 = 3, c1 = 0;</span><br><span class="line">		if(a1&gt;2 ^ (c1++)&gt;=0) &#123; 				//a1&gt;2假，(c1++)&gt;=0真</span><br><span class="line">			System.out.println(c1);			//输出c1为 1</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if(a1==2^b1==3) &#123;</span><br><span class="line">			System.out.println(&quot;有输出吗?&quot;);		//没有输出</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h2><p>break是强制退出循环，不执行剩余的内容；而continue是跳过本次循环的内容。</p>
+<p>下面是嵌套循环，在j==3进行了处理，break每次到j==3时，跳出内循环，进行下一次外循环。而continue是跳过本次内循环，进行下一次内循环。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">for(int i=1; i&lt;5; i++) &#123;</span><br><span class="line">	for(int j=1; j&lt;5; j++) &#123;</span><br><span class="line">		if(j==3) break;</span><br><span class="line">		System.out.print(i+&quot;:&quot;+j+&apos;\t&apos;);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(&quot;------------------------------------------------------&quot;);</span><br><span class="line"></span><br><span class="line">for(int i=1; i&lt;5; i++) &#123;</span><br><span class="line">	for(int j=1; j&lt;5; j++) &#123;</span><br><span class="line">		if(j==3) continue;</span><br><span class="line">		System.out.print(i+&quot;:&quot;+j+&apos;\t&apos;);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs-java/java02_06.png" alt></p>
+<p>在C语言中，有一个语句叫goto，很少用，因为太调皮了。能够从一个语句跳转到另一个语句，用起来很爽，但太乱了，所以java中就只成为保留字，没有任何意义。但是，break和continue却有点像goto，不执行接下来的语句，执行另外的语句，只是限制在了循环里。而它只是不执行内循环接下来的语句，如果我们也不想执行外循环接下来的语句呢？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">a:for(int i=1; i&lt;5; i++) &#123;</span><br><span class="line">	for(int j=1; j&lt;5; j++) &#123;</span><br><span class="line">		if(j==3) break a;</span><br><span class="line">		System.out.print(i+&quot;:&quot;+j+&apos;\t&apos;);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">&#125;</span><br><span class="line">System.out.println();</span><br><span class="line">System.out.println(&quot;------------------------------------------------------&quot;);</span><br><span class="line"></span><br><span class="line">a:for(int i=1; i&lt;5; i++) &#123;</span><br><span class="line">	for(int j=1; j&lt;5; j++) &#123;</span><br><span class="line">		if(j==3) continue a;</span><br><span class="line">		System.out.print(i+&quot;:&quot;+j+&apos;\t&apos;);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();	//这条语句就成了摆设，可以放在第一个循环下面</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs-java/java02_07.png" alt></p>
+<p>也差不多实现和goto一样的意思，想跳哪就去哪，只是限制在循环里的操作。如果里面的判断再多点，估计也就像goto一样看不懂了，所以我感觉自己玩玩挺好的，真正拿来写代码，那有点得罪人的意思了。</p>
+<hr>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>当存在多个相同数据类型的变量，我们用x1,x2,x3,x4…进行数据操作时效率太低，因此才有了数组。数组分为一维数组在，和多维数组，我们最常用的应该就是一维数组在和二维数组。而这个维度，指的只是空间的增多而已。一维只是一行元素，二维在一维的每个元素又拉出来一列，构成一个矩阵。三维也是只在每行每列的每个元素又来出来一纵，构成一个像魔方一样的立体。四维也就只是再在每个元素又拉出一行元素，以此类推。</p>
+<hr>
+<h2 id="数组的声明和赋值"><a href="#数组的声明和赋值" class="headerlink" title="数组的声明和赋值"></a>数组的声明和赋值</h2><p>好像有三种吧。但好像我一般只用两种。</p>
+<hr>
+<h3 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h3><p>第一种是声明数组类型和长度，然后赋值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//数组声明</span><br><span class="line">int []a = new int [10];		//[0,10)</span><br><span class="line">//int a[] = new int [10]; //这种也可以，但好像不规范</span><br><span class="line">//数组赋值，数字下标从0开始计算</span><br><span class="line">a[0] = 0;</span><br><span class="line">a[1] = 1;</span><br><span class="line">a[2] = 2;</span><br><span class="line">//也可以循环赋值</span><br><span class="line">for(int i=3; i&lt;10; i++) &#123;</span><br><span class="line">	a[i] = i;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(Arrays.toString(a));		//一定要引入 import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">//打印出[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span><br></pre></td></tr></table></figure>
+
+<p>第二种是声明数组类型写内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int []a = new int[] &#123;0,1,2,3,4,5,6,7,8,9&#125;;</span><br><span class="line">System.out.println(Arrays.toString(a));		//一定要引入 import java.util.Arrays;</span><br><span class="line">//打印内容和上面一样</span><br></pre></td></tr></table></figure>
+
+<p>第三种是直接写内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int []a =&#123;0,1,2,3,4,5,6,7,8,9&#125;;</span><br><span class="line">for(int i=0; i&lt;a.length; i++) &#123;	//也可以用循环打印结果，length是获取数组的长度</span><br><span class="line">	System.out.print(a[i]+&quot; &quot;);</span><br><span class="line">&#125;</span><br><span class="line">//输出 0 1 2 3 4 5 6 7 8 9</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int [][]a = new int [3][]; //告诉编译器二维数组有三行，每行多少个就看你自己写的</span><br><span class="line">//int [][]a = new int [3][4]; //也可以直接写死，有三行，有四列</span><br><span class="line">a[0] = new int[] &#123;0,1,2&#125;;</span><br><span class="line">a[1] = new int[] &#123;0,1,2,3,4&#125;;</span><br><span class="line">a[2] = new int[] &#123;0,1&#125;;</span><br><span class="line">for(int i=0; i&lt;a.length; i++) &#123;</span><br><span class="line">	for(int j=0; j&lt;a[i].length; j++) &#123;</span><br><span class="line">		System.out.print(a[i][j]+&quot; &quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs-java/java02_08.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int [][]a = new int[][] &#123;&#123;0,1,2&#125;,&#123;0,1,2,3,4&#125;,&#123;0,1&#125;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>二维数组也可以像一维数组一样声明和使用，但它列可以是不固定的，有多长看自己的喜爱。但我一般喜欢用固定，方便两层for循环输入数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int [][]a = new int[3][4];</span><br><span class="line">for(int i=0; i&lt;a.length; i++) &#123;</span><br><span class="line">	for(int j=0; j&lt;a[i].length; j++) &#123;</span><br><span class="line">		a[i][j] = i*j+i+j;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(Arrays.deepToString(a));	//声明 import java.util.Arrays;</span><br><span class="line">//输出 [[0, 1, 2, 3], [1, 3, 5, 7], [2, 5, 8, 11]]</span><br></pre></td></tr></table></figure>
+
+<p>数组内容虽然写的少，要点也有点少。但它真的很重要，如果写算法题，遇到二叉树呀，图呀，动态规划之类的题，或搜索呀。必不可少就是数组，因为数组才能表示上一次的递推和下一次的联系、关系。而这些题也很能锻炼写代码的逻辑思维，或者用数组模拟单链表的插入和删除、遍历。这些真的考验思维能力。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢您对我的支持</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="KEKEXI 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="KEKEXI 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    KEKEXI
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://jiema0217.github.io/2019/08/05/java基础（二）/" title="java基础（二）">https://jiema0217.github.io/2019/08/05/java基础（二）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"> <i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/基础/" rel="tag"> <i class="fa fa-tag"></i> 基础</a>
+          
+            <a href="/tags/笔记/" rel="tag"> <i class="fa fa-tag"></i> 笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/30/java基础（一）/" rel="next" title="java基础（一）">
+                <i class="fa fa-chevron-left"></i> java基础（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="KEKEXI">
+            
+              <p class="site-author-name" itemprop="name">KEKEXI</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jiema0217" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+           
+			
+
+          <div id="days"></div>
+
+<script language="javascript">
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("7/29/2019 20:00:00");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本控制语句"><span class="nav-number">1.</span> <span class="nav-text">基本控制语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择结构"><span class="nav-number">1.1.</span> <span class="nav-text">选择结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if语句"><span class="nav-number">1.1.1.</span> <span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-else语句"><span class="nav-number">1.1.2.</span> <span class="nav-text">if-else语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if-elseif-else语句"><span class="nav-number">1.1.3.</span> <span class="nav-text">if-elseif-else语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套的if"><span class="nav-number">1.1.4.</span> <span class="nav-text">嵌套的if</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch语句"><span class="nav-number">1.1.5.</span> <span class="nav-text">switch语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环语句"><span class="nav-number">1.2.</span> <span class="nav-text">循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环"><span class="nav-number">1.2.1.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增强for循环"><span class="nav-number">1.2.2.</span> <span class="nav-text">增强for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while循环"><span class="nav-number">1.2.3.</span> <span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#do-while循环"><span class="nav-number">1.2.4.</span> <span class="nav-text">do-while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套循环"><span class="nav-number">1.2.5.</span> <span class="nav-text">嵌套循环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#、-amp-amp-、-、"><span class="nav-number">1.3.</span> <span class="nav-text">!、&amp;&amp;、||、^</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break和continue"><span class="nav-number">1.4.</span> <span class="nav-text">break和continue</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的声明和赋值"><span class="nav-number">2.1.</span> <span class="nav-text">数组的声明和赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组"><span class="nav-number">2.1.1.</span> <span class="nav-text">一维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组"><span class="nav-number">2.1.2.</span> <span class="nav-text">二维数组</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+	  
+	  
+		<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+		<div class="widget-wrap">
+		<h3 class="widget-title">云标签</h3>
+		<div id="myCanvasContainer" class="widget tagcloud">
+			<canvas width="250" height="250" id="resCanvas" style="width=100%">
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
+			</canvas>
+		</div>
+		</div>
+		
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KEKEXI</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量 <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'qmP5rpAu2mcRFbWTg1sWiTAl-gzGzoHsz',
+        appKey: 'wU7vkeyFin0s8G1C5hOG4f54',
+        placeholder: '快来说点什么吧！发个表情也行',
+        avatar:'',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
