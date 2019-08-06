@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_06.png">
 <meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_07.png">
 <meta property="og:image" content="https://jiema0217.github.io/imgs-java/java02_08.png">
-<meta property="og:updated_time" content="2019-08-05T12:37:40.705Z">
+<meta property="og:updated_time" content="2019-08-05T12:42:42.491Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础（二）">
 <meta name="twitter:description" content="本次主要记录的是基本控制语句、数组两块内容">
@@ -529,7 +529,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">int a = 2, b = 3, c = 0;</span><br><span class="line">if(!(c!=0) &amp;&amp; a&gt;1) &#123;</span><br><span class="line">	System.out.println(&quot;c不是不是0，并且a的值大于1&quot;); //有点拗，c!=0，是false,又加个否定，等价于c==0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(a&gt;2 &amp;&amp; (c++)&gt;=0) &#123;	</span><br><span class="line">	System.out.println(&quot;有输出吗?&quot;);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(&quot;c:&quot;+c);</span><br><span class="line">//看的出来， a&gt;2不成立，没有执行if里的内容，&amp;&amp;后面也没有执行</span><br><span class="line"></span><br><span class="line">if((c++)&gt;=0 &amp;&amp; a&gt;2) &#123;	</span><br><span class="line">	System.out.println(&quot;有输出吗?&quot;);</span><br><span class="line">&#125;</span><br><span class="line">//更改一下位置，c++,c变为1，条件成立，但a&gt;2不成立，没有执行if里的内容</span><br><span class="line">System.out.println(&quot;c:&quot;+c);</span><br><span class="line"></span><br><span class="line">if(a&gt;2 || (c++)&gt;=0) &#123;</span><br><span class="line">	System.out.println(&quot;c:&quot;+c);</span><br><span class="line">&#125;</span><br><span class="line">// ||有一个成立就行，所以if里打印了c的值</span><br></pre></td></tr></table></figure>
 
 <p><img src="/imgs-java/java02_05.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">		//这是异常的示例</span><br><span class="line">		int a = 5, b = 3;</span><br><span class="line">		System.out.println(a^b); 			//输出 6</span><br><span class="line">/*</span><br><span class="line"> * 		原理还是二进制</span><br><span class="line"> * 		5的二进制：0101</span><br><span class="line"> * 		3的二进制：0011</span><br><span class="line"> * 		那么^之后：0110   就是6啦，一真一假为真</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">		int a1 = 2, b1 = 3, c1 = 0;</span><br><span class="line">		if(a1&gt;2 ^ (c1++)&gt;=0) &#123; 				//a1&gt;2假，(c1++)&gt;=0真</span><br><span class="line">			System.out.println(c1);			//输出c1为 1</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if(a1==2^b1==3) &#123;</span><br><span class="line">			System.out.println(&quot;有输出吗?&quot;);		//没有输出</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">		//这是异或的示例</span><br><span class="line">		int a = 5, b = 3;</span><br><span class="line">		System.out.println(a^b); 			//输出 6</span><br><span class="line">/*</span><br><span class="line"> * 		原理还是二进制</span><br><span class="line"> * 		5的二进制：0101</span><br><span class="line"> * 		3的二进制：0011</span><br><span class="line"> * 		那么^之后：0110   就是6啦，一真一假为真</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">		int a1 = 2, b1 = 3, c1 = 0;</span><br><span class="line">		if(a1&gt;2 ^ (c1++)&gt;=0) &#123; 				//a1&gt;2假，(c1++)&gt;=0真</span><br><span class="line">			System.out.println(c1);			//输出c1为 1</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		if(a1==2^b1==3) &#123;</span><br><span class="line">			System.out.println(&quot;有输出吗?&quot;);		//没有输出</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h2 id="break和continue"><a href="#break和continue" class="headerlink" title="break和continue"></a>break和continue</h2><p>break是强制退出循环，不执行剩余的内容；而continue是跳过本次循环的内容。</p>
@@ -657,6 +657,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/08/06/java基础（三）/" rel="prev" title="java基础（三）">
+                java基础（三） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -737,7 +741,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -845,7 +849,7 @@ show_date_time();
 		<h3 class="widget-title">云标签</h3>
 		<div id="myCanvasContainer" class="widget tagcloud">
 			<canvas width="250" height="250" id="resCanvas" style="width=100%">
-				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
 			</canvas>
 		</div>
 		</div>
