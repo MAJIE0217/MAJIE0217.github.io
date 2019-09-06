@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://jiema0217.github.io/imgs-java/java01_01.png">
 <meta property="og:image" content="https://jiema0217.github.io/imgs-java/java01_02.png">
 <meta property="og:image" content="https://jiema0217.github.io/imgs-java/java01_04.png">
-<meta property="og:updated_time" content="2019-07-30T11:33:38.113Z">
+<meta property="og:updated_time" content="2019-09-05T05:19:56.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础（一）">
 <meta name="twitter:description" content="本次主要记录的是基本数据类型、数据类型转换、基本运算符和进制表示四块内容。">
@@ -464,7 +464,7 @@
 <td align="center">64</td>
 </tr>
 </tbody></table>
-<p>其中，整数的默认类型是int，所以使用long类型，由于数据范围比int大，要在其值后加上L/l,来表明它是long类型。但l和1(一)太相像，所以通常用大写的L。而byte和short就不需要类型转换，因为它们的数据范围本身比int小，自然不会超过int表示范围。</p>
+<p>其中，整数的默认类型是int，所以使用long类型时，由于数据范围比int大，要在其值后加上L/l,来表明它是long类型。但l和1(一)太相像，所以通常用大写的L。而byte和short就不需要类型转换，因为它们的数据范围本身比int小，自然不会超过int表示范围。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//这些都在自己的数据范围内</span><br><span class="line">byte a = 18;				//输出 18</span><br><span class="line">short b = 1000;				//输出 1000</span><br><span class="line">int c = 40000;				//输出 40000</span><br><span class="line">long d = 3000000000L;;			//输出 3000000000</span><br></pre></td></tr></table></figure>
 
 <p>而下面则是错误示范，还没运行，编译器自动提示错误：前两个是类型不匹配，无法从int转为byte/short，后两个都是超过int数据类型的范围。更能说明long的默认数据类型是int，因为他没超过long的数据范围。</p>
@@ -813,7 +813,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -921,7 +921,7 @@ show_date_time();
 		<h3 class="widget-title">云标签</h3>
 		<div id="myCanvasContainer" class="widget tagcloud">
 			<canvas width="250" height="250" id="resCanvas" style="width=100%">
-				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/magisk/">magisk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/太极/">太极</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/magisk/">magisk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/太极/">太极</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
 			</canvas>
 		</div>
 		</div>
