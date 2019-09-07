@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://jiema0217.github.io/imgs-java/java03_01.png">
 <meta property="og:image" content="https://jiema0217.github.io/imgs-java/java03_02.png">
-<meta property="og:updated_time" content="2019-08-21T05:46:33.948Z">
+<meta property="og:updated_time" content="2019-09-07T06:52:14.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础（三）">
 <meta name="twitter:description" content="本次记录的是方法，在其他语言也被称为函数。">
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.8k 字
+                  2k 字
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7 分钟
+                  8 分钟
                 </span>
               
             </div>
@@ -468,7 +468,15 @@
 <p>说白了就是指向的对象不同，值传递是在方法调用中，指向一个新的数据变量，址传递因为一开始都指向同一个对象，那么原参数也改变。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class test03 &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		//基本数据类型，一般是值传递</span><br><span class="line">		int a = 10;					//一开始a是10</span><br><span class="line">		changeInt(a);					//方法里把a变为20</span><br><span class="line">		System.out.println(a);				//值传递并没有改变原a的值</span><br><span class="line">		</span><br><span class="line">		//引用类型，一般是引用传递/址传递</span><br><span class="line">		int []arr = new int[] &#123;0,1,2,3,4,5,6,7,8,9&#125;;</span><br><span class="line">		changeArr(arr);					//数组是一个对象，改变同对象的值</span><br><span class="line">		System.out.println(Arrays.toString(arr));</span><br><span class="line">		</span><br><span class="line">		//方法中重新new一个对象</span><br><span class="line">		changeArr2(arr);				//新的方法，重新new一个数组[0,1,2,3,4]</span><br><span class="line">		System.out.println(Arrays.toString(arr));	//但并没有改变原数组的值，因为它们的指向的地址不同</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void changeInt(int a) &#123;</span><br><span class="line">		a = 20;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void changeArr(int a[]) &#123;</span><br><span class="line">		for(int i=0; i&lt;a.length; i++) &#123;</span><br><span class="line">			a[i] = (i+1)*2; </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void changeArr2(int a[]) &#123;</span><br><span class="line">		a = new int [5];				//新new一个数组</span><br><span class="line">		for(int i=0; i&lt;a.length; i++) &#123;</span><br><span class="line">			a[i] = i; </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/imgs-java/java03_02.png" alt><br>方法就这么多记录，有遗漏欢迎在评论区补充，有不足也请多多关照，在评论区留言，也感谢您的观看，下次见。</p>
+<p><img src="/imgs-java/java03_02.png" alt></p>
+<h1 id="方法块"><a href="#方法块" class="headerlink" title="方法块"></a>方法块</h1><p>上面讲的都是有返回类型，方法名的方法，如果没有呢？那就是方法块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	</span><br><span class="line">	static &#123;</span><br><span class="line">		System.out.println(&quot;static方法块&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	&#123;</span><br><span class="line">		System.out.println(&quot;main外的方法块&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		System.out.println(&quot;main方法&quot;);</span><br><span class="line">		&#123;</span><br><span class="line">			int a = 10;</span><br><span class="line">			System.out.println(&quot;main里的方法块&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		//a = 5;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于没有方法名，所以只能直接放到main里使用，而且方法块里的变量，属性，在方法块外是没发使用的，相当于局部变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">static方法块</span><br><span class="line">main方法</span><br><span class="line">main里的方法块</span><br></pre></td></tr></table></figure>
+
+<p>结果是不是很意外，分析一下，在执行程序时，先将静态的，类，方法名，常量放到内存的方法区，所以先加载static方法块，然后执行main方法，一步一步执行，为啥没执行main外的方法块呢，因为我们没调用这个类。下次再继续。</p>
+<p>方法就这么多记录，有遗漏欢迎在评论区补充，有不足也请多多关照，在评论区留言，也感谢您的观看，下次见。</p>
 
       
     </div>
@@ -735,7 +743,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#方法的定义"><span class="nav-number">1.</span> <span class="nav-text">方法的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修饰符"><span class="nav-number">1.1.</span> <span class="nav-text">修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#访问控制修饰符"><span class="nav-number">1.1.1.</span> <span class="nav-text">访问控制修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非访问修饰符"><span class="nav-number">1.1.2.</span> <span class="nav-text">非访问修饰符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法的返回类型"><span class="nav-number">2.</span> <span class="nav-text">方法的返回类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法的重载"><span class="nav-number">3.</span> <span class="nav-text">方法的重载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#值传递与引用传递"><span class="nav-number">4.</span> <span class="nav-text">值传递与引用传递</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#方法的定义"><span class="nav-number">1.</span> <span class="nav-text">方法的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修饰符"><span class="nav-number">1.1.</span> <span class="nav-text">修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#访问控制修饰符"><span class="nav-number">1.1.1.</span> <span class="nav-text">访问控制修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非访问修饰符"><span class="nav-number">1.1.2.</span> <span class="nav-text">非访问修饰符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法的返回类型"><span class="nav-number">2.</span> <span class="nav-text">方法的返回类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法的重载"><span class="nav-number">3.</span> <span class="nav-text">方法的重载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#值传递与引用传递"><span class="nav-number">4.</span> <span class="nav-text">值传递与引用传递</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法块"><span class="nav-number">5.</span> <span class="nav-text">方法块</span></a></li></ol></div>
             
 
           </div>
