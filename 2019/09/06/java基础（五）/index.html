@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://jiema0217.github.io/imgs-java/java05_01.png">
 <meta property="og:image" content="https://jiema0217.github.io/imgs-java/java05_02.png">
-<meta property="og:updated_time" content="2019-09-06T08:56:31.188Z">
+<meta property="og:updated_time" content="2019-09-08T03:52:05.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础（五）">
 <meta name="twitter:description" content="这次主要记录的是基本数据类型的封装和String的基本使用。">
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.6k 字
+                  3.1k 字
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11 分钟
+                  13 分钟
                 </span>
               
             </div>
@@ -512,17 +512,23 @@
 <p>看，String是类，却没有new，很多人初学可能都以为它是特殊的基本数据类型。但它是类，所以它也可以new。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	String str = &quot;Hello,World&quot;;</span><br><span class="line">	String str2 = new String(&quot;Hello,World&quot;);</span><br><span class="line">	System.out.println(str == str2);</span><br><span class="line">	System.out.println(str2.equals(str));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>那第一个打印啥，是false，为啥？在内存中，常量是加载到方法区的，比如我们定义的Final，或字符串都是常量，而str2是在堆里生成的，而String不是基本数据类型，比较的也就是对象是否相等，地址是否相等。</p>
+<p>那第一个打印啥，是false，为啥？在内存中，常量是一开始加载到方法区的常量池，比如我们定义的Final，或字符串都在常量池，而str2是先在常量池找有没有该常量，有的话直接在堆新建一个对象，没有的话，会在常量池存入该常量，接着在堆里新建对象。一个指向常量池，一个指向堆，所以打印false。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	String str = &quot;Hello,World&quot;;</span><br><span class="line">	String str2 = &quot;Hello,World&quot;;</span><br><span class="line">	System.out.println(str == str2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这个代码更能说明问题，当我str赋值时，会去方法区找”Hello,World”这个常量，str2赋值，也会找它，同时指向同一个地址，那么它们的对象、值也就相等。</p>
+<p>这个代码也能说明问题，当我给str赋值时，会去常量池找”Hello,World”这个常量，str2赋值，也会先去常量池找，同时指向同一个地址，那么它们的对象、值也就相等。</p>
 <p>String也被称为不可变的字符串，在java中定义如下。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public final class String</span><br></pre></td></tr></table></figure>
 
-<p>可是，我们在使用中，往往可以加字符串。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	String str = &quot;Hello,World&quot;;</span><br><span class="line">	str += &quot;! java&quot;;</span><br><span class="line">	System.out.println(str);	//打印 Hello,World! java</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可是，我们在使用中，往往可以加字符串，但是会产生多个对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	</span><br><span class="line">	//System.identityHashCode(Object) 打印在内存中的地址</span><br><span class="line">	</span><br><span class="line">	String str;							//一开始str为null，没有对象，也就没有哈希地址</span><br><span class="line">	</span><br><span class="line">	str = &quot;Hello,World&quot;;						//把常量池的&quot;Hello,World&quot;的地址给了str</span><br><span class="line">	System.out.println(System.identityHashCode(&quot;Hello,World&quot;));	//2018699554</span><br><span class="line">	System.out.println(System.identityHashCode(str));		//两个地址在我的电脑上都是上面这一串</span><br><span class="line">	</span><br><span class="line">	str += &quot;! java&quot;;						//接着给str又赋值</span><br><span class="line">	System.out.println(System.identityHashCode(str));		//1311053135	这是新的str的地址</span><br><span class="line">	System.out.println(System.identityHashCode(&quot;! java&quot;));		//118352462		这是该字符串的地址</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这是为啥，String是不可变的，但是java创建新的String temp存储str和new String(“! java”)值，又重新赋值给了str，所以，但我们进行以上操作，java自动new了两个对象。String不可变还可以体现在我们不能改变其中任何值。</p>
+<p>这里新建了一次str对象。而对象呢，也就创建了一个，因为”Hello,World”和”! java”一开始就加载到了常量池，使用的时候直接指向在常量池的对象就行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	</span><br><span class="line">	//System.identityHashCode(Object) 打印在内存中的地址</span><br><span class="line">	</span><br><span class="line">	String str = new String(&quot;Hello&quot;);</span><br><span class="line">	System.out.println(System.identityHashCode(str));			//2018699554</span><br><span class="line">	System.out.println(System.identityHashCode(&quot;Hello&quot;));			//1311053135</span><br><span class="line">	</span><br><span class="line">	String str2 = new String(&quot;Hello&quot;);</span><br><span class="line">	System.out.println(System.identityHashCode(str2));			//118352462</span><br><span class="line">	System.out.println(System.identityHashCode(&quot;Hello&quot;));			//1311053135</span><br><span class="line">	</span><br><span class="line">	String str3 = &quot;He&quot; + &quot;llo&quot;;</span><br><span class="line">	System.out.println(System.identityHashCode(str3));			//1311053135</span><br><span class="line">	System.out.println(System.identityHashCode(&quot;He&quot;));			//1550089733</span><br><span class="line">	System.out.println(System.identityHashCode(&quot;llo&quot;));			//865113938</span><br><span class="line">	</span><br><span class="line">	String str = str+str;</span><br><span class="line">	System.out.println(System.identityHashCode(str));			//1442407170</span><br><span class="line">	System.out.println(System.identityHashCode(&quot;HelloHello&quot;));		//1028566121</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每次地址都不一样，也就说明对象也不一样，一开始str新建String对象，而常量池没有”Hello”，于是先在常量池新建”Hello”对象，接着给str新建对象，所以第5行代码新建了两个对象，我们也看到str和”Hello”地址不一样。<br>而str2也新建”Hello”对象，但是常量池有”Hello”的对象，所以直接在堆里新建一个对象，所以这里只新建str2对象。看得出”Hello”地址没变。</p>
+<p>而str3是把”He”和”llo”合在一起，构成一个字符串，去常量池找，所以直接指向常量池的对象地址。没有创建对象。</p>
+<p>最后str把str+str，因为字符串不可变，而常量池没有”HelloHello”，所以先在常量池创建新对象”HelloHello”，str也更改对象，获取“helloHello”。创建了两个对象。</p>
+<p>所以上面的代码最少创建5个对象，</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">	</span><br><span class="line">	String str = String.valueOf(1.21);</span><br><span class="line">	System.out.println(str);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>String自然也可以用装箱和拆箱使用一些方法。</p>
