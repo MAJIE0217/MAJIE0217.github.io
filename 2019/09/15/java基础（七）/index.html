@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="jiema0217">
 <meta property="og:description" content="这次记录几个常用的类，有Arrays、Math和Data这几个。而更新内容也会越来越少，主要是后面的我也不太会….说一下计划，之后记录内部类，泛型和容器，异常，io，多线程，java基础篇也就完结啦。当然，学编程最重要的是逻辑思维，所以少不了数据结构。为了能成为全栈工程师，前端、数据库、servlet也很重要，共勉吧。也许有人会说少了框架，那东西，只是帮助开发，会用就行。基础才最重要。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-15T11:17:37.251Z">
+<meta property="og:image" content="https://jiema0217.github.io/imgs-java/java07_01.png">
+<meta property="og:updated_time" content="2019-09-18T05:40:24.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础（七）">
 <meta name="twitter:description" content="这次记录几个常用的类，有Arrays、Math和Data这几个。而更新内容也会越来越少，主要是后面的我也不太会….说一下计划，之后记录内部类，泛型和容器，异常，io，多线程，java基础篇也就完结啦。当然，学编程最重要的是逻辑思维，所以少不了数据结构。为了能成为全栈工程师，前端、数据库、servlet也很重要，共勉吧。也许有人会说少了框架，那东西，只是帮助开发，会用就行。基础才最重要。">
+<meta name="twitter:image" content="https://jiema0217.github.io/imgs-java/java07_01.png">
 
 
 
@@ -383,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2k 字
+                  2.3k 字
                 </span>
               
 
@@ -399,7 +401,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9 分钟
+                  10 分钟
                 </span>
               
             </div>
@@ -502,6 +504,11 @@
 </tbody></table>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//Math默认在java.lang包,不需要导入包名</span><br><span class="line"></span><br><span class="line">public class frequentClass &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		//Math类的两个常量</span><br><span class="line">		System.out.println(Math.E);				//打印 2.718281828459045</span><br><span class="line">		System.out.println(Math.PI);				//打印 3.141592653589793</span><br><span class="line"></span><br><span class="line">		System.out.println(Math.abs(-12));			//打印 12</span><br><span class="line">		System.out.println(Math.sin(30*Math.PI/180));		//打印 0.49999999999999994。sin30°= 1/2，精度问题</span><br><span class="line">		System.out.println(Math.ceil(1.2));			//打印 2.0</span><br><span class="line">		System.out.println(Math.floor(1.5));			//打印 1.0</span><br><span class="line">		System.out.println(Math.sqrt(25));			//打印 5.0</span><br><span class="line">		System.out.println(Math.pow(2, 4));			//打印 16.0</span><br><span class="line">		System.out.println(Math.random());			//打印[0,1)之间的伪随机数</span><br><span class="line">		System.out.println((int)(Math.random()*10+1)); 		//打印[1,10]之间的随机整数</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
+<p>在Math类里还有一个类,那就是BigDecimal类，进行大数运算，你可以输入超过long和double数据范围，所以它的精度也挺高，也经常用于浮点数的加减问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import java.math.BigDecimal;						//Math.BigDecimal类里</span><br><span class="line"></span><br><span class="line">public class frequentClass &#123;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">		BigDecimal b1 = new BigDecimal(&quot;123.415&quot;);		//进行字符串的浮点输入和普通的浮点输入</span><br><span class="line">		System.out.println(b1);</span><br><span class="line">		</span><br><span class="line">		BigDecimal b2 = new BigDecimal(123.415);</span><br><span class="line">		System.out.println(b2);</span><br><span class="line">		</span><br><span class="line">		BigDecimal b3 = new BigDecimal(&quot;123.415&quot;);</span><br><span class="line">		System.out.println(b3);</span><br><span class="line"></span><br><span class="line">		System.out.println(b1.equals(b2));			//比较，在java大部分类都重写了equals方法，不再是比较对象是否相等</span><br><span class="line">		System.out.println(b1.equals(b3));</span><br><span class="line">		</span><br><span class="line">		double d = b1.add(b3).doubleValue();			//add()进行相加，doubleValue()转化为浮点相加，因为字符串没有基本运算</span><br><span class="line">		System.out.println(d);</span><br><span class="line">		</span><br><span class="line">		double d2 = b1.subtract(b3).doubleValue();</span><br><span class="line">		System.out.println(d2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/imgs-java/java07_01.png" alt></p>
+<p>可以看得出来，BigDecimal使用的时候，如果是浮点型，一定要写成字符串的形式，否则，还是可能会出现精度问题。</p>
 <h1 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h1><p>Date类在以前是一个很强的类，所以就被削弱了，很多方法都给了Calendar类。下面这是它的使用方法。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">public class frequentClass &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Date d = new Date();				//新建一个Date()对象</span><br><span class="line">		System.out.println(d);				//打印 Sun Sep 15 17:25:25 CST 2019，打印的是当前时间</span><br><span class="line">		</span><br><span class="line">		System.out.println(new Date(1000)); 		//打印 Thu Jan 01 08:00:01 CST 1970</span><br><span class="line">								//设置从1970年1月1号0时0分0秒到1000毫秒的时间</span><br><span class="line">								//可能由于时差的问题，所以显示的是8点</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		System.out.println(d.getTime());		//打印 1568539525671,获取当前时间的毫秒</span><br><span class="line">		d.setTime(1000);				//和new Date(long)一样，设置纪元时间后的1000毫秒</span><br><span class="line">		System.out.println(d); 				//打印 Thu Jan 01 08:00:01 CST 1970</span><br><span class="line">		System.out.println(d.before(new Date(1200)));	//打印 true。1000是否在1200之前</span><br><span class="line">		System.out.println(d.after(new Date(1200)));	//打印 false。1000是否在1200之后</span><br><span class="line"></span><br><span class="line">		Date d1 = new Date(2000);</span><br><span class="line">		Date d2 = new Date(1500);</span><br><span class="line">		System.out.println(d1.compareTo(d2));		//打印1， 如果d1比d2大，相等返回0，小于返回-1</span><br><span class="line"></span><br><span class="line">		//下面则是被废弃的方法，能用，但不建议使用</span><br><span class="line">		d = new Date();</span><br><span class="line">		System.out.println(&quot;获取年:&quot;+(d.getYear()+1900));//获取年:2019</span><br><span class="line">		System.out.println(&quot;获取月:&quot;+d.getMonth());	//获取月:8。当然现在9月，因为英语日期不是按数字的，所以也是从0开始</span><br><span class="line">		System.out.println(&quot;获取日:&quot;+d.getDate());	//获取日:15</span><br><span class="line">		System.out.println(&quot;获取时:&quot;+d.getHours());	//获取时:17</span><br><span class="line">		System.out.println(&quot;获取分:&quot;+d.getMinutes());	//获取分:34</span><br><span class="line">		System.out.println(&quot;获取秒:&quot;+d.getSeconds());	//获取秒:29</span><br><span class="line">		System.out.println(&quot;获取星期:&quot;+d.getDay());	//获取星期:0。星期也是从0开始，0是星期天</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -748,6 +755,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/09/18/Los/" rel="prev" title="小米平板1+LineageOS 14.1+Smoke刷机教程">
+                小米平板1+LineageOS 14.1+Smoke刷机教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -828,7 +839,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -850,7 +861,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -936,7 +947,7 @@ show_date_time();
 		<h3 class="widget-title">云标签</h3>
 		<div id="myCanvasContainer" class="widget tagcloud">
 			<canvas width="250" height="250" id="resCanvas" style="width=100%">
-				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/magisk/">magisk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/太极/">太极</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/番外/">番外</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/程序/">程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
+				<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/magisk/">magisk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/刷机/">刷机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/基础/">基础</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/太极/">太极</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/番外/">番外</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/程序/">程序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a><span class="tag-list-count">1</span></li></ul>
 			</canvas>
 		</div>
 		</div>
