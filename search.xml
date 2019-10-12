@@ -1,6 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>mysq的安装</title>
+    <url>/2019/10/12/MySqlInt/</url>
+    <content><![CDATA[<p>mysql的安装与配置。</p>
+<a id="more"></a>
+
+<h2 id="mysql的下载"><a href="#mysql的下载" class="headerlink" title="mysql的下载"></a>mysql的下载</h2><p>首先，还是去官网下载：<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+<p>一般选第一个就行，点击DownLoad，进入一个页面，它让你登录或注册，我们可以不用管，看到<strong>No thanks, just start my download.</strong>点击，就会去下载。</p>
+<p>接着解压，一定要解压到你知道的目录下。</p>
+<br>
+
+<p>环境变量我没配，当然你也可以去配，在系统变量里的Path输入你的路径，如：D:\mysql-8.0.11-winx64\bin</p>
+<p>可能系统或版本的原因，我不配也能使用。</p>
+<h2 id="添加配置"><a href="#添加配置" class="headerlink" title="添加配置"></a>添加配置</h2><p>mysql最关键的一步：先在你的MySql主目录下添加一个文件名叫my.ini。</p>
+<p>用记事本打开，复制下面的代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[mysql]</span><br><span class="line"># 设置mysql客户端默认字符集</span><br><span class="line">default-character-set=utf8 </span><br><span class="line">[mysqld]</span><br><span class="line">#设置3306端口</span><br><span class="line">port = 3306 </span><br><span class="line"># 设置mysql的安装目录</span><br><span class="line">basedir=D:\mysql-8.0.11-winx64		#这里是MySql的路径</span><br><span class="line"># 设置mysql数据库的数据的存放目录</span><br><span class="line">datadir=D:\mysql-8.0.11-winx64\data	#要生成的数据，现在有没有这文件夹都没关系</span><br><span class="line"># 允许最大连接数</span><br><span class="line">max_connections=200</span><br><span class="line"># 服务端使用的字符集默认为8比特编码的latin1字符集</span><br><span class="line">character-set-server=utf8</span><br><span class="line"># 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
+
+<p>注意要更改那两个路径。</p>
+<h2 id="配置命令"><a href="#配置命令" class="headerlink" title="配置命令"></a>配置命令</h2><p>我们要管理员模式进入命令行安装mysql。</p>
+<p>上面的下载只相当于一个架子，现在下载的是它的数据。</p>
+<p>进入管理员我找到两种方式，一种是win10的搜索框，输入cmd，匹配到命令提示符。右键，看到以管理员身份运行。第二种直接右键开始按钮，有一个Windows PowerSell(管理员)。</p>
+<p>1.先找到你的mysql的目录，</p>
+<p>简单的DOS命令，D:(切换到D盘) E:(切换到E盘)</p>
+<p>cd XXXX 进入该盘下的XXXX文件或文件夹</p>
+<p>我们要进入到bin目录。我的MySql目录:D:\mysql-8.0.11-winx64\bin</p>
+<p>所以我的操作如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">D:</span><br><span class="line">cd D:\mysql-8.0.11-winx64\bin</span><br></pre></td></tr></table></figure>
+
+<p>进入到bin后，输入以下指令：</p>
+<p>安装mysql服务：mysqld –install –console</p>
+<p> 如果看到root@localhost:XXX。这XXX就是它随机的密码，先记住。</p>
+<p>启动mysql：net start mysql</p>
+<p>会看到：</p>
+<p>MySql 服务正在启动</p>
+<p>MySql 服务已经启动成功</p>
+<p>如果启动失败，查看它给的错误提示，百度就能解决。</p>
+<p>进入数据库：mysql -uroot -pXXX</p>
+<p>​        -u输入的是默认账号， -p输入的是刚才记住的密码</p>
+<p>修改密码：ALTER USER ‘root’@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘你的密码’;</p>
+<p>现在就可以使用数据库了，</p>
+<p>如果要与java连接，需要一个jdbc包，可以去<a href="https://dev.mysql.com/downloads/connector/j/8.0.html" target="_blank" rel="noopener">https://dev.mysql.com/downloads/connector/j/8.0.html</a> 里面下载。</p>
+<p>点右边的Looking for previous GA versions可以下载旧版本。</p>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>安装</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jdk和tomcat的配置</title>
+    <url>/2019/10/12/JdkAndTomcat/</url>
+    <content><![CDATA[<p>安装Java的Jdk和Tomcat服务器， 无图版</p>
+<a id="more"></a>
+
+<h1 id="Jdk的配置"><a href="#Jdk的配置" class="headerlink" title="Jdk的配置"></a>Jdk的配置</h1><h2 id="Jdk的下载"><a href="#Jdk的下载" class="headerlink" title="Jdk的下载"></a>Jdk的下载</h2><p>首先，我们打开oracle的官网：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p>
+<p> 现在Jdk的版本更新到了13，选择你喜欢的版本，点击DOWNLOAD。</p>
+<p>接着，点击Accept License Agreement 左边的圆点，同意它的协议要求。</p>
+<p>你可以看到有Linux、MacOS、Windows的JDK安装包，选择适合你的版本，如果你系统是64位，下载x64的，如果是32位，你只能下载1.8的x86。jdk现在版本虽然更新的更快了，但区别不是很大。不过最好下载1.8以上的版本，包括1.8。</p>
+<p>最后登录你的oracle账号开始下载，如果没有，先注册一个。</p>
+<h2 id="Jdk的安装"><a href="#Jdk的安装" class="headerlink" title="Jdk的安装"></a>Jdk的安装</h2><p>下载好后，一步一步点击下一步，这是会看到Java的安装路径，你可以随意安装，但真的不建议放到C盘。</p>
+<p>接着又是一步步点击下一步，这里是Jdk的安装，请记住你放在哪个目录哪个文件里，记住，不建议放C盘。</p>
+<p>最后安装完毕。</p>
+<h2 id="Jdk-的环境变量配置"><a href="#Jdk-的环境变量配置" class="headerlink" title="Jdk 的环境变量配置"></a>Jdk 的环境变量配置</h2><p>右键点击你的电脑—&gt;属性—&gt;高级系统设置—&gt;环境变量。</p>
+<p>找到系统变量里的Path，点击Path，如果只有一行，请先打英文的 <strong>;</strong>  ，再把你Jdk里的bin目录复制下来。例如：D:\Jdk\1.8\bin。放到 ; 后面。如果是多行，可以不打分好。</p>
+<p>一般来说这就好了，只需要把jdk的bin放到环境变量就行。</p>
+<p>如果不放心按win键+R输入cmd进入控制台，在控制台输入：java、java -version来判断。</p>
+<br>
+
+<br>
+
+<h1 id="Tomcat的配置"><a href="#Tomcat的配置" class="headerlink" title="Tomcat的配置"></a>Tomcat的配置</h1><h2 id="Tomcat的下载"><a href="#Tomcat的下载" class="headerlink" title="Tomcat的下载"></a>Tomcat的下载</h2><p>首先打开Tomcat的官网：<a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a></p>
+<p>里面随便选，点击蓝字Download，找到Core，这里就是我们要下载的，下载32-bit或64-bit，格式为zip的。</p>
+<p>下载完后解压到你找得到的目录。例如：D:\apache-tomcat-9.0.24</p>
+<h2 id="Tomcat的配置-1"><a href="#Tomcat的配置-1" class="headerlink" title="Tomcat的配置"></a>Tomcat的配置</h2><p>可能因为系统或版本的原因，我没配也可以使用。</p>
+<p>不过还是建议你把Tomcat的bin路径复制下来，在Path里添加进去。</p>
+<p>接着在bin目录找到startup.bat这个文件，它是开启服务器的，你现在点开肯定打不开。</p>
+<p>我们右键编辑，记事本也行，notepad也行，在这添加两个路径：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SET JAVA_HOME=D:\Jdk\1.8			#此为你Jdk的路径</span><br><span class="line">SET TOMCAT_HOME=D:\apache-tomcat-9.0.24		#此为你Tomcat的路径</span><br></pre></td></tr></table></figure>
+
+<p>记得要修改为你自己的路径，你还可以在shutdown.bat也添加这两个，这个关闭服务器的。</p>
+<p>现在你就可以点击startup.bat打开服务器，在网站上输入<a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> 如果出现Tomcat的界面，则配置成功。</p>
+<h1 id="Eclipse下载"><a href="#Eclipse下载" class="headerlink" title="Eclipse下载"></a>Eclipse下载</h1><p>首先，我们也是打开Eclipse的官网<a href="https://www.eclipse.org/downloads/packages/" target="_blank" rel="noopener">https://www.eclipse.org/downloads/packages/</a></p>
+<p>一般来说下载第一个就行，下载好后解压，找到后缀为exe文件，点击运行即可。</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+        <tag>安装软件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安装Windows操作系统</title>
     <url>/2019/10/12/LoadingOS/</url>
     <content><![CDATA[<p>先放松一下，安装操作系统，本次以Windows为例。无图版。</p>
@@ -42,8 +134,8 @@
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>系统安装</tag>
         <tag>随笔</tag>
+        <tag>系统安装</tag>
       </tags>
   </entry>
   <entry>
