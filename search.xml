@@ -20,7 +20,9 @@
   <entry>
     <title>Spring MVC四则运算</title>
     <url>/2019/10/23/SpringTest01/</url>
-    <content><![CDATA[<p>用疯狂软件写的Spring+MyBatis里的一点基础，写了JSR303校验的四则运算</p>
+    <content><![CDATA[<p>用疯狂软件写的Spring+MyBatis里的一点基础，写了JSR303校验的四则运算。</p>
+<a id="more"></a>
+
 <p>先看看效果，图一是默认效果，图二是输入错误效果。</p>
 <p><img src="/imgs-java/SpringTest01_01.png" alt></p>
 <p><img src="/imgs-java/SpringTest01_02.png" alt></p>
