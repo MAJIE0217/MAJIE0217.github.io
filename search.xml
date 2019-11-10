@@ -67,8 +67,8 @@
 <p>先看看效果，图一是默认效果，图二是输入错误效果。</p>
 <p><img src="/imgs-java/SpringTest01_01.png" alt></p>
 <p><img src="/imgs-java/SpringTest01_02.png" alt></p>
-<p>为啥要写？因为这本书确实不错，案例也充沛，看完应该能入门，但是，这书太老了。Jdk、Spring和使用的版本不同，造成了一些Bug，而且现在是Spring Boot的兴起。</p>
-<p>比如Tomcat启动，启动一半报错了？？？或者启动后，报错，Tomcat启动失败？？？各种404或500？？？很多人都以为是Tomcat的锅，重新加载Tomcat或换旧的Tomcat的。</p>
+<p>为啥要写？因为这本书确实不错，案例也充沛，看完应该能入门，但是Jdk、Spring和使用的版本不同，会造成了一些Bug。。</p>
+<p>比如Tomcat启动，启动一半报错了？？？或者启动后，报错，Tomcat启动失败？？？各种404或500？？？可能都以为是Tomcat的锅，重新加载Tomcat或换旧的Tomcat的。</p>
 <p>Tomcat就想说：我只是一个服务器，你程序运行失败跟我啥事呀，为啥我被骂呀……</p>
 <p>其实很多时候，是版本不兼容造成的，而这本书，只适合jdk1.8和它相匹配的Spring，比如4.2.0。</p>
 <p>那今天我就用Jdk11.0.4和Spring5.2.0，Tomcat9.0.26来和大家一起鼓捣鼓捣。</p>
@@ -1044,7 +1044,7 @@
 
 ]]></content>
       <categories>
-        <category>实战</category>
+        <category>随笔</category>
       </categories>
       <tags>
         <tag>番外</tag>
